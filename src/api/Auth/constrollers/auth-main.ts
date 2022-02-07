@@ -2,10 +2,25 @@ import { Request, Response } from 'express';
 
 class AuthHandler {
   static login(request: Request, response: Response) {
-    if (!request.body) {
-      throw new Error('not found');
+    const { username, password } = request.body;
+
+    if (username !== 'andrei' || password !== 'andrei') {
+      response.cookie('password', password, {
+        httpOnly: true,
+      });
+
+      return response.render('login', {
+        error_msg: 'email or password is invalid',
+      });
     }
-    response.render('login');
+
+    return response.redirect(303, '/book');
+  }
+
+  static registration(request: Request, response: Response) {
+    // eslint-disable-next-line no-console
+    console.log('registration');
+    return response.redirect(303, '/book');
   }
 }
 

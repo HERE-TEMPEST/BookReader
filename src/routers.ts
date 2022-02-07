@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import bookRouter from './api/Book/router';
 import authRouter from './api/Auth/router';
+import mainRouter from './api/Main/router';
 
 interface RoutersInterface {
   path: string;
@@ -14,6 +15,10 @@ const routers: RoutersInterface[] = [
   },
   {
     router: authRouter,
+    path: '/auth',
+  },
+  {
+    router: mainRouter,
     path: '/',
   },
 ];

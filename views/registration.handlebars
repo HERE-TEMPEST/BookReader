@@ -1,5 +1,5 @@
 <div>
-	<form method="post" action="/auth/login">
+	<form method="POST" action="/auth/registration">
 		<div class="modal-box">
 			<div id="loadingIndicator" class="loading-overlay">
 				<div class="loading-center">
@@ -25,12 +25,13 @@
 				<span id="togglePasswordButton" class="toggle-password-icon bi-eye"></span>
 			</div>
 
-			<a href="/error" class="forgot-password-link text-button-small small-margin-top">Forgot password?</a>			
-
-			<a href="/registration" class="forgot-password-link text-button-small small-margin-top">Registration.</a>			
+            <input name="repeatpassword" id="passwordInput" required="true" type="password" class="default-input small-margin-top" maxLength="100" placeholder="Repeat password"/>
+			<div class="toggle-password-box">
+				<span id="togglePasswordButton" class="toggle-password-icon bi-eye"></span>
+			</div>
 
 			<div class="footer">
-				<button id="submitButton" type="submit" class="submit-button">Login</button>
+				<button id="submitButton" type="submit" class="submit-button">Registration</button>
 			</div>
 		</div>
 	</form>

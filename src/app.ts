@@ -1,8 +1,11 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 import routers from './routers';
 import errorHandler from './error-handler';
+import env from './config';
 
 const app = express();
 
@@ -17,6 +20,10 @@ app.set('view engine', 'handlebars');
 
 // use json parser
 app.use(express.json());
+// use body-parser
+app.use(bodyParser());
+// define express-session(cookie-parser)
+app.use(cookieParser(env.COOKIE_SECRET));
 
 // declarate all routers
 routers.forEach((router) => {

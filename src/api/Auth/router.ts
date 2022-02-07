@@ -4,6 +4,8 @@ import authHandler from './constrollers/auth-main';
 
 const router = Router();
 
-router.get('/', authHandler.login);
+router.post('/login', authHandler.login);
+router.post('/registration', authHandler.registration);
+router.put('/reset_password', authHandler.registration);
 
 export default router;
